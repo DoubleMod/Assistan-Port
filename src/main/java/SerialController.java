@@ -1,14 +1,31 @@
+import com.sun.org.apache.xpath.internal.objects.XNull;
 import gnu.io.*;
+import javafx.fxml.FXML;
+import javafx.scene.control.CheckBox;
 
-import java.io.*;
-import java.util.ArrayList;
-import java.util.Enumeration;
-import java.util.List;
-import java.util.TooManyListenersException;
+import javax.swing.*;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.PrintStream;
+import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
+import java.util.*;
 
 public class SerialController {
 
     private SerialPort serialPort;
+
+    private CheckBox showCheckBox;
+
+    private CheckBox sendCheckBox;
+
+    public void setShowCheckBox(CheckBox showCheckBox) {
+        this.showCheckBox = showCheckBox;
+    }
+
+    public void setSendCheckBox(CheckBox sendCheckBox) {
+        this.sendCheckBox = sendCheckBox;
+    }
 
     /**
      * 获得系统可用端口的列表
@@ -51,9 +68,19 @@ public class SerialController {
                 //是其他类型端口
                 throw new NoSuchPortException();
             }
-        } catch (UnsupportedCommOperationException | NoSuchPortException | PortInUseException e) {
-            serialPort.close();
+        } catch (UnsupportedCommOperationException e) {
+            JOptionPane.showMessageDialog(null, "不支持通信的串口", "温馨提示", JOptionPane.QUESTION_MESSAGE);
             e.printStackTrace();
+            serialPort.close();
+        } catch (NoSuchPortException  e) {
+            JOptionPane.showMessageDialog(null, "串口不存在或已被占用", "温馨提示", JOptionPane.QUESTION_MESSAGE);
+            e.printStackTrace();
+            serialPort.close();
+        } catch (PortInUseException e ) {
+            JOptionPane.showMessageDialog(null, "串口已被占用", "温馨提示", JOptionPane.QUESTION_MESSAGE);
+            e.printStackTrace();
+            serialPort.close();
+
         }
         return false;
     }
@@ -63,7 +90,7 @@ public class SerialController {
      */
     public void close() {
         if (serialPort != null) {
-            serialPort.close();
+            SerialPortUtil.closeSerialPort(serialPort);
             serialPort = null;
         }
     }
@@ -74,16 +101,17 @@ public class SerialController {
      * @param data 发送的数据
      */
     public void sendData(String data) {
-        PrintStream printStream = null;
-        try {
-            printStream = new PrintStream(serialPort.getOutputStream(), true, "GBK");  //获取串口的输出流
+
+        try  {
+            PrintStream printStream = new PrintStream(serialPort.getOutputStream(), true, "GBK");
+            //获取串口的输出流
             printStream.print(data);
+            if (data == null) {
+                data = "";
+            }
+            System.out.println("发送指令: " + data);
         } catch (IOException e) {
             e.printStackTrace();
-        } finally {
-            if (printStream != null) {
-                printStream.close();
-            }
         }
     }
 
@@ -112,8 +140,11 @@ public class SerialController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        String str=new String(bytes, "GBK");
-        return str;
+        if (bytes != null) {
+                return new String(bytes, "GBK");
+        } else {
+            return "";
+        }
     }
 
 

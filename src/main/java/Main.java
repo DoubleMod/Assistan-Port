@@ -6,6 +6,7 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
 
 public class Main extends Application {
     public static void main(String[] args) {
@@ -17,7 +18,8 @@ public class Main extends Application {
     public void start(Stage primaryStage) {
         Parent root = null;
         try {
-            root = FXMLLoader.load(getClass().getResource("SerialAssistant.fxml"));
+            URL resource = getClass().getResource("SerialAssistant.fxml");
+            root = FXMLLoader.load(resource);
             primaryStage.setTitle("串口调试");
 //            primaryStage.getIcons().add(new Image("avator2.png"));
             primaryStage.setScene(new Scene(root));
