@@ -1,6 +1,4 @@
-import com.sun.org.apache.xpath.internal.objects.XNull;
 import gnu.io.*;
-import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
 
 import javax.swing.*;
@@ -8,8 +6,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.io.UnsupportedEncodingException;
-import java.nio.charset.StandardCharsets;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.List;
+import java.util.TooManyListenersException;
 
 public class SerialController {
 

@@ -1,0 +1,77 @@
+On Drag Detected：当你从一个Node上进行拖动的时候，会检测到拖动操作，将会执行这个EventHandler。
+
+On Drag Done：当你拖动并松手的时候，执行Drag完成操作。
+
+On Drag Dropped：当你拖动到目标并松开鼠标的时候，执行这个DragDropped事件。
+
+On Drag Entered：当你拖动到目标控件的时候，会执行这个事件回调。
+
+On Drag Exited：当你拖动移出目标控件的时候，执行这个操作。
+
+On Drag Over： 当某被拖动的对象在另一对象容器范围内拖动时触发此事件，会不停的执行。
+
+On Mouse Drag Entered：定义当完全按下并释放手势进入节点Node时要触发的事件。
+
+On Mouse Drag Exited：定义当完全按下并释放手势离开节点Node时要触发的事件。
+
+On Mouse Drag Over：定义在节点Node中完全按下并释放手势时要触发的事件。
+
+On Mouse Drag Released：定义在节点Node中完全按下并释放的手势（通过释放鼠标按钮）结束时要触发的事件
+
+On Input Method Text Changed：当输入框内容变化时触发该事件，但是该事件的触发好像有些问题，只有输入法是全角时才会触发，并且输入中文无效。如果需要监听TextField控件值变化还请使用JavaFX代码而不是用这个事件方法。
+
+On Key Pressed：当键盘按键被按下的时候触发事件。
+
+On Key Released：当键盘按键按下后被释放的时候触发事件。
+
+On Key Typed：只会响应文字输入键，如字母、数字和标点符号等，它不会响应CTRL/ENTER/F1等功能键。
+
+On Context Menu Requested：当鼠标右键单击时触发该事件。
+
+On Mouse Clicked：当鼠标点击时触发事件。
+
+On Mouse Dragged：当鼠标拖动该控件时触发事件。
+
+On Mouse Entered：当鼠标进入该控件范围内触发。
+
+On Mouse Exited：当鼠标离开该控件范围内触发。
+
+On Mouse Moved：当鼠标在控件范围内移动触发。
+
+On Mouse Pressed：当鼠标按下左键或右键时触发事件。
+
+On Mouse Released：当鼠标松开按键时触发事件。
+
+On Scroll：当滚动鼠标滚轮时触发事件。
+
+On Scroll Started：定义检测到滚动手势时要调用的事件。
+
+On Scroll Finished：定义滚动手势结束时要调用的事件。
+
+On Rotate：当控件旋转时触发事件。
+
+On Rotation Started：控件旋转开始时触发。
+
+On Rotation Finished：控件旋转结束时触发。
+
+On Swipe Left：定义在此节点上居中发生向左滑动手势时要调用的函数。
+
+On Swipe Right：定义在此节点上居中发生向右滑动手势时要调用的函数。
+
+On Swipe Up：定义在此节点上居中发生向上滑动手势时要调用的函数。
+
+On Swipe Down：定义当在此节点上居中的向下滑动手势发生时要调用的函数。
+
+On Touch Moved：定义移动触摸点时要调用的函数。
+
+On Touch Pressed：定义当按下新的接触点时要调用的函数。
+
+On Touch Released：定义释放触摸点时要调用的函数。
+
+On Touch Stationary：定义当触摸点保持静止不动时要调用的函数。
+
+On Zoom：定义用户执行缩放操作时要调用的函数。
+
+On Zoom Started：定义检测到缩放手势时要调用的函数。
+
+On Zoom Finished：定义在缩放手势结束时要调用的函数。

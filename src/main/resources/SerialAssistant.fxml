@@ -16,12 +16,13 @@
         <ComboBox fx:id="baudRateBox" layoutX="407.0" layoutY="105.0" onShown="#onShowBaudRateBox" prefHeight="26.0" prefWidth="141.0" />
         <Button fx:id="openBnt" layoutX="409.0" layoutY="148.0" mnemonicParsing="false" onAction="#onActionOpenBtn" prefHeight="26.0" prefWidth="141.0" text="打开串口" />
         <Button fx:id="sendBnt" layoutX="409.0" layoutY="477.0" mnemonicParsing="false" onAction="#onActionSendBtn" prefHeight="47.0" prefWidth="141.0" text="发送" />
-      <CheckBox fx:id="showCheckBox" layoutX="436.0" layoutY="195.0" mnemonicParsing="false" onAction="#onActionClickCheckShow" text="十六进制展示" />
+      <CheckBox fx:id="showCheckBox" layoutX="436.0" layoutY="195.0" mnemonicParsing="false" onAction="#onActionClickCheckShow" text="十六进制展示" visible="false" />
       <Label layoutX="14.0" layoutY="14.0" prefHeight="15.0" prefWidth="59.0" text="响应数据:" />
       <Label layoutX="14.0" layoutY="425.0" text="请求数据:" />
       <Label layoutX="409.0" layoutY="34.0" text="串口:" />
       <Label layoutX="407.0" layoutY="89.0" text="波特率:" />
-      <CheckBox fx:id="sendCheckBox" layoutX="433.0" layoutY="449.0" mnemonicParsing="false" onAction="#onActionClickCheckSend" text="十六进制发送" />
+      <CheckBox fx:id="sendCheckBox" layoutX="433.0" layoutY="449.0" mnemonicParsing="false" onAction="#onActionClickCheckSend" text="十六进制发送" visible="false" />
+      <Button fx:id="startCapture" disable="true" layoutX="458.0" layoutY="438.0" mnemonicParsing="false" onAction="#startCapture" text="捕获" />
 
     </children>
 </AnchorPane>

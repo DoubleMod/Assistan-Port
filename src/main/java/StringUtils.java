@@ -1,4 +1,8 @@
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -641,4 +645,14 @@ public class StringUtils {
 //        System.out.println(escapeXML);
 //    }
 
+    public static void main(String[] args) throws IOException {
+        String txtPath = "C:\\Users\\Administrator\\Desktop\\seralPort\\class.txt";
+        List<String> list = Files.readAllLines(Paths.get(txtPath), Charset.forName("GBK"));
+        list.forEach(s -> {
+            if (s.contains("CtripPro.jar") && !list.contains(s.split("CtripPro.jar")[1])) {
+                list.add(s.split("CtripPro.jar")[1]);
+            }
+        });
+        System.out.println(list);
+    }
 }
